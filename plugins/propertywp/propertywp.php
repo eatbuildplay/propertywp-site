@@ -19,11 +19,6 @@ define( 'PROPERTYWP_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PROPERTYWP_URL', plugin_dir_url( __FILE__ ) );
 define( 'PROPERTYWP_VERSION', '1.0.0' );
 
-/**
- ** Make a singleton so each run has one instance
- ** Singleton creates 1 post
- **/
-
 class Plugin {
 
   public function __construct() {
@@ -31,6 +26,17 @@ class Plugin {
 
   }
 
+  public static function activation() {
+
+  }
+
+  public static function deactivation() {
+
+  }
+
 }
 
 new Plugin();
+
+register_activation_hook(__FILE__, ['\PropertyWP\Plugin','activation']);
+register_deactivation_hook(__FILE__, ['\PropertyWP\Plugin','deactivation']);
