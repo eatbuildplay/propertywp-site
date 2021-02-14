@@ -1,5 +1,62 @@
 <?php
 
+require_once( get_template_directory() . '/inc/kirki/kirki.php' );
+
+Kirki::add_config( 'theme_config_id', array(
+	'capability'    => 'edit_theme_options',
+	'option_type'   => 'theme_mod',
+));
+
+Kirki::add_panel( 'panel_id', array(
+  'priority'    => 10,
+  'title'       => esc_html__( 'My Panel', 'kirki' ),
+  'description' => esc_html__( 'My panel description', 'kirki' ),
+));
+
+Kirki::add_section( 'section_id', array(
+  'title'          => esc_html__( 'My Section', 'kirki' ),
+  'description'    => esc_html__( 'My section description.', 'kirki' ),
+  'panel'          => 'panel_id',
+  'priority'       => 160,
+) );
+
+Kirki::add_field( 'theme_config_id', [
+	'type'        => 'repeater',
+	'label'       => esc_html__( 'Repeater Control', 'kirki' ),
+	'section'     => 'section_id',
+	'priority'    => 10,
+	'row_label' => [
+		'type'  => 'text',
+		'value' => esc_html__( 'Your Custom Value', 'kirki' ),
+	],
+	'button_label' => esc_html__('"Add new" button label (optional) ', 'kirki' ),
+	'settings'     => 'my_repeater_setting',
+	'default'      => [
+		[
+			'link_text' => esc_html__( 'Kirki Site', 'kirki' ),
+			'link_url'  => 'https://kirki.org/',
+		],
+		[
+			'link_text' => esc_html__( 'Kirki Repository', 'kirki' ),
+			'link_url'  => 'https://github.com/aristath/kirki',
+		],
+	],
+	'fields' => [
+		'link_text' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Link Text', 'kirki' ),
+			'description' => esc_html__( 'This will be the label for your link', 'kirki' ),
+			'default'     => '',
+		],
+		'link_url'  => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Link URL', 'kirki' ),
+			'description' => esc_html__( 'This will be the link URL', 'kirki' ),
+			'default'     => '',
+		],
+	]
+] );
+
 /* Scripts */
 add_action('wp_enqueue_scripts', function() {
 
