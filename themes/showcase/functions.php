@@ -157,4 +157,52 @@ function theme_footer_customizer( $wp_customize ) {
     'type'    => 'text',
   ));
 
+  // Footer > Sitemap Page Selection
+
+  $wp_customize->add_setting('sitemap_page');
+
+  $wp_customize->add_control('sitemap_page', array(
+    'label'   => 'Select Sitemap Page',
+    'section' => 'footer_settings_section',
+    'type'    => 'dropdown-pages',
+  ));
+
+  // Footer > Privacy Policy Page Selection
+
+  $wp_customize->add_setting('privacy_policy_page');
+
+  $wp_customize->add_control('privacy_policy_page', array(
+    'label'   => 'Select Privacy Policy Page',
+    'section' => 'footer_settings_section',
+    'type'    => 'dropdown-pages',
+  ));
+
+  // Footer > Logo
+
+  $wp_customize->add_setting( 'footer_logo',
+   array(
+      'default' => '',
+      'transport' => 'refresh',
+      'sanitize_callback' => 'esc_url_raw'
+   )
+);
+
+$wp_customize->add_control( new WP_Customize_Image_Control(
+  $wp_customize, 'footer_logo',
+   array(
+    'label' => __( 'Footer Logo' ),
+    'description' => esc_html__( 'This is the description for the Image Control' ),
+    'section' => 'footer_settings_section',
+    'button_labels' => array( // Optional.
+      'select' => __( 'Select Image' ),
+      'change' => __( 'Change Image' ),
+      'remove' => __( 'Remove' ),
+      'default' => __( 'Default' ),
+      'placeholder' => __( 'No image selected' ),
+      'frame_title' => __( 'Select Image' ),
+      'frame_button' => __( 'Choose Image' ),
+      )
+    )
+  ));
+
 }

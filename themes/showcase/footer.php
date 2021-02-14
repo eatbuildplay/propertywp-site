@@ -1,3 +1,28 @@
+<?php
+
+// Footer Logo
+$footerLogo = get_theme_mod('footer_logo');
+
+// Sitemap Page Selection
+$sitemapPage = get_theme_mod('sitemap_page');
+if( !$sitemapPage ) {
+  $hasSitemapPage = false;
+} else {
+  $hasSitemapPage = true;
+  $sitemapPagePermalink = get_permalink( $sitemapPage );
+}
+
+// Privacy Policy Page Selection
+$privacyPolicyPage = get_theme_mod('privacy_policy_page');
+if( !$privacyPolicyPage ) {
+  $hasPrivacyPolicyPage = false;
+} else {
+  $hasPrivacyPolicyPage = true;
+  $privacyPolicyPagePermalink = get_permalink( $privacyPolicyPage );
+}
+
+?>
+
 <!-- Flexbox container for aligning the toasts -->
 <div aria-live="polite" aria-atomic="true" class="d-flex align-items-center position-fixed w-100 bottom-0 start-50 translate-middle" style="z-index: 1;justify-content: flex-end !important;">
   <div class="toast d-flex align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="4000">
@@ -46,7 +71,7 @@
 
         <div class="col-md-4 col-sm-12 pb-4">
           <div class="footer-logo d-flex justify-content-center">
-            <img src="<?php print get_template_directory_uri() . '/assets/encore_logo.png'; ?>" />
+            <img src="<?php print $footerLogo; ?>" />
           </div>
         </div>
 
@@ -82,8 +107,12 @@
             <h6><?php print get_theme_mod('copyright'); ?></h6>
           </div>
           <div class="footer-privacy d-flex justify-content-center">
-            <a href="<?php print site_url( 'sitemap' ); ?>">Sitemap</a>
-            <a href="<?php print site_url( 'privacy-policy' ); ?>">Privacy policy</a>
+            <?php if( $hasSitemapPage ) : ?>
+              <a href="<?php print $sitemapPagePermalink; ?>">Sitemap</a>
+            <?php endif; ?>
+            <?php if( $hasPrivacyPolicyPage ) : ?>
+              <a href="<?php print $privacyPolicyPagePermalink; ?>">Privacy policy</a>
+            <?php endif; ?>
           </div>
         </div><!-- ./col-12 -->
       </div>
