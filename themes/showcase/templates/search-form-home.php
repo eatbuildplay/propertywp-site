@@ -50,7 +50,7 @@
           <div id="field-price-maximum"></div>
 
           <!-- Search Button -->
-          <div class="d-flex justify-content-center align-items-center" id="search-button"><i class="far fa-search"></i> SEARCH</div>
+          <div class="d-flex justify-content-center align-items-center" id="search-button"><i class="fas fa-search"></i> SEARCH</div>
 
         </div><!-- ./search-home-grid -->
 

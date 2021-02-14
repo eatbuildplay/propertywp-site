@@ -26,7 +26,7 @@
 
       base.$el.data("select", base);
       base.$el.addClass('aab-select');
-      base.$el.append('<h2 class="d-flex justify-content-between align-items-center"><span>' + base.options.label + '</span> <i class="fal fa-angle-down"></i></h2>');
+      base.$el.append('<h2 class="d-flex justify-content-between align-items-center"><span>' + base.options.label + '</span> <i class="fas fa-angle-down"></i></h2>');
 
       let $selectListEl = $('<div class="select-list"></div>').appendTo( base.$el );
       $selectListEl.append('<ul></ul>');
@@ -148,7 +148,7 @@
 
       if( typeof selection !== 'object' && selection !== null ) {
         return;
-      }      
+      }
 
       if( !base.options.multiple ) {
         base.values = []; // empty values so new value is the only one
