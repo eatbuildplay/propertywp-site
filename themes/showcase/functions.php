@@ -127,7 +127,8 @@ add_action('wp_enqueue_scripts', function() {
     'templateUrl' 	=> get_stylesheet_directory_uri(),
     'userId'      	=> get_current_user_id(),
     'areas'       	=> getAreas(),
-		'propertyTypes' => searchDefaultPropertyTypes(),
+		'searchDefaultPropertyTypes' => searchDefaultPropertyTypes(),
+		'searchDefaultBedrooms' => searchDefaultBedrooms(),
     'moveInDates' 	=> getMoveInDates()
   ];
 

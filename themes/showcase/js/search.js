@@ -16,33 +16,9 @@ jQuery(document).ready(function($) {
   });
 
   // Bedrooms Field
-  var bedroomSelectOptions = [
-    {
-      value: "0",
-      title: "0"
-    },
-    {
-      value: "1",
-      title: "1"
-    },
-    {
-      value: "2",
-      title: "2"
-    },
-    {
-      value: "3",
-      title: "3"
-    },
-    {
-      value: "4",
-      title: "4"
-    }
-  ];
+  initFieldBedrooms();
 
-  $("#field-bedrooms").select({
-    label: "Bedrooms",
-    items: bedroomSelectOptions
-  });
+
 
   // Bathrooms Field
   var bathroomSelectOptions = [
@@ -128,9 +104,21 @@ function initFieldPropertyType() {
 
   jQuery("#field-property-type").select( {
     label: "Property Type",
-    items: showcase.propertyTypes
+    items: showcase.searchDefaultPropertyTypes
   });
-  
+
+}
+
+/*
+ * Bedrooms Field Init
+ */
+function initFieldBedrooms() {
+
+  jQuery("#field-bedrooms").select( {
+    label: "Bedrooms",
+    items: showcase.searchDefaultBedrooms
+  });
+
 }
 
 /*
