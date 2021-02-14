@@ -35,7 +35,7 @@ add_action('wp_enqueue_scripts', function() {
   );
 
   wp_enqueue_script(
-    'propertywp-main-script',
+    'showcase-main-script',
     get_template_directory_uri() . '/js/script.js',
     ['jquery', 'select', 'search'],
     '1.0.0'
@@ -58,11 +58,21 @@ add_action('wp_enqueue_scripts', function() {
   );
 
   wp_enqueue_style(
-    'propertywp-main-styles',
+    'showcase-main-style',
     get_template_directory_uri() . '/style.css',
     ['bootstrap', 'propertywp-select'],
     time()
   );
+
+  /* end scripts and styles single property */
+  $localVars = [
+    'templateUrl' => get_stylesheet_directory_uri(),
+    'userId'      => get_current_user_id(),
+    //'areas'       => getAreas(),
+    'moveInDates' => getMoveInDates()
+  ];
+
+  wp_localize_script( 'showcase-main-script', 'showcase', $localVars );
 
 });
 
@@ -274,5 +284,32 @@ $wp_customize->add_control( new WP_Customize_Image_Control(
       )
     )
   ));
+
+}
+
+/*
+ * Move-in Dates for search forms
+ * Returns an array for use in selectors
+ */
+function getMoveInDates( $months = 13 ) {
+
+  $start = new DateTime();
+  $start->modify('first day of this month');
+  $end = new DateTime("+" . $months . " months");
+  $end->modify('first day of this month');
+
+  $interval = DateInterval::createFromDateString('1 month');
+  $period   = new DatePeriod($start, $interval, $end);
+
+  $moveInDates = [];
+
+  foreach( $period as $d ) {
+    $date = new stdClass;
+    $date->title = $d->format('F, Y');
+    $date->value = $d->format('Y-m');
+    $moveInDates[] = $date;
+  }
+
+  return $moveInDates;
 
 }

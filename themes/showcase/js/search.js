@@ -54,4 +54,73 @@ jQuery(document).ready(function($) {
     items: bathroomSelectOptions
   });
 
+  // Price Minimum
+  let priceMinimumSelectOptions = [
+    {
+      value: 500,
+      title: "500"
+    },
+    {
+      value: 1000,
+      title: "1000"
+    }
+  ];
+  $("#field-price-minimum").select( {
+      label: "Minimum $",
+      items: priceMinimumSelectOptions
+  } );
+
+  // Price Maximum
+  let priceMaximumSelectOptions = [
+    {
+      value: 500,
+      title: "500"
+    },
+    {
+      value: 1000,
+      title: "1000"
+    }
+  ];
+  $("#field-price-maximum").select( {
+      label: "Maximum $",
+      items: priceMaximumSelectOptions
+  } );
+
+  /* Init property type field */
+  initFieldPropertyType();
+
+  /* Move-in Date Field */
+  $("#field-move-in-date").select( {
+    label: "Move-in Date",
+    items: showcase.moveInDates
+  });
+
 });
+
+
+/*
+ * Property Type Field Init
+ */
+function initFieldPropertyType() {
+
+  let propertyTypeSelectOptions = [
+    {
+      value: 'any',
+      title: "Any Property Type"
+    },
+    {
+      value: 'condo',
+      title: "Condo"
+    },
+    {
+      value: 'single_family',
+      title: "Single Family"
+    }
+  ];
+
+  jQuery("#field-property-type").select( {
+    label: "Property Type",
+    items: propertyTypeSelectOptions
+  });
+
+}
