@@ -19,24 +19,30 @@
           <!-- address -->
           <div class="footer-address">
             <ul class="f-adress">
+
               <li class="d-flex align-items-center">
-                <i class="fas fa-map"></i>
-                  <?php print get_theme_mod('street_address'); ?>
-                </li>
-                <li class="d-flex align-items-center">
-                  <i class="fas fa-envelope"></i>
-                  <a href="mailto:info@allaccessboston.com">info@allaccessboston.com</a>
-                </li>
-                    <li class="d-flex align-items-center">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:+16179816900">617 981 6900</a>
-                    </li>
-              <li class="d-flex align-items-center"><i class="fas fa-fax"></i>617 981 6901</li>
+              <i class="fas fa-map"></i>
+                <?php print get_theme_mod('street_address'); ?>
+              </li>
+
+              <?php $email = get_theme_mod('email'); ?>
+              <li class="d-flex align-items-center">
+                <i class="fas fa-envelope"></i>
+                <a href="<?php print $email; ?>"><?php print $email; ?></a>
+              </li>
+
+              <li class="d-flex align-items-center">
+                <i class="fas fa-phone"></i>
+                <a href="tel: <?php print get_theme_mod('phone'); ?>"><?php print get_theme_mod('phone'); ?></a>
+              </li>
+
+              <li class="d-flex align-items-center">
+                <i class="fas fa-fax"></i><?php print get_theme_mod('fax'); ?>
+              </li>
+
             </ul>
           </div>
         </div>
-
-
 
         <div class="col-md-4 col-sm-12 pb-4">
           <div class="footer-logo d-flex justify-content-center">
@@ -73,7 +79,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="footer-copyright d-flex justify-content-center">
-            <h6>&copy; Encore Realty. All Rights Reserved <?= date('Y') ?>.</h6>
+            <h6><?php print get_theme_mod('copyright'); ?></h6>
           </div>
           <div class="footer-privacy d-flex justify-content-center">
             <a href="<?php print site_url( 'sitemap' ); ?>">Sitemap</a>

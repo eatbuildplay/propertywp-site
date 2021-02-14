@@ -103,13 +103,58 @@ function theme_footer_customizer( $wp_customize ) {
 
   //adding setting for footer text area
   $wp_customize->add_setting('street_address', array(
-   'default' => '123 Charter Blvd.',
-   ));
+    'default' => '123 Charter Blvd.',
+  ));
 
   $wp_customize->add_control('street_address', array(
     'label'   => 'Footer Text Here',
     'section' => 'footer_settings_section',
     'type'    => 'textarea',
+  ));
+
+  // Footer > Email
+  $wp_customize->add_setting('email', array(
+    'default' => '',
+  ));
+
+  $wp_customize->add_control('email', array(
+    'label'   => 'Email to display',
+    'section' => 'footer_settings_section',
+    'type'    => 'text',
+  ));
+
+  // Footer > Phone
+  $wp_customize->add_setting('phone', array(
+    'default' => '',
+  ));
+
+  $wp_customize->add_control('phone', array(
+    'label'   => 'Phone to display',
+    'section' => 'footer_settings_section',
+    'type'    => 'text',
+  ));
+
+  // Footer > Fax
+  $wp_customize->add_setting('fax', array(
+    'default' => '',
+  ));
+
+  $wp_customize->add_control('fax', array(
+    'label'   => 'Fax to display',
+    'section' => 'footer_settings_section',
+    'type'    => 'text',
+  ));
+
+  // Footer > Copyright Statement
+
+  $wp_customize->add_setting('copyright', array(
+    'default' => '&copy; PropertyWP. All Rights Reserved 2021.',
+  ));
+
+  $wp_customize->add_control('copyright', array(
+    'label'   => 'Copyright statement',
+    'section' => 'footer_settings_section',
+    'type'    => 'text',
   ));
 
 }
