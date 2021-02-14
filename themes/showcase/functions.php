@@ -1,5 +1,6 @@
 <?php
 
+require_once( get_template_directory() . '/inc/search.php' );
 require_once( get_template_directory() . '/inc/kirki/kirki.php' );
 
 Kirki::add_config( 'theme_config_id', array(
@@ -123,10 +124,11 @@ add_action('wp_enqueue_scripts', function() {
 
   /* end scripts and styles single property */
   $localVars = [
-    'templateUrl' => get_stylesheet_directory_uri(),
-    'userId'      => get_current_user_id(),
-    'areas'       => getAreas(),
-    'moveInDates' => getMoveInDates()
+    'templateUrl' 	=> get_stylesheet_directory_uri(),
+    'userId'      	=> get_current_user_id(),
+    'areas'       	=> getAreas(),
+		'propertyTypes' => searchDefaultPropertyTypes(),
+    'moveInDates' 	=> getMoveInDates()
   ];
 
   wp_localize_script( 'showcase-main-script', 'showcase', $localVars );

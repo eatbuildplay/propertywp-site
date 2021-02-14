@@ -126,26 +126,11 @@ jQuery(document).ready(function($) {
  */
 function initFieldPropertyType() {
 
-  let propertyTypeSelectOptions = [
-    {
-      value: 'any',
-      title: "Any Property Type"
-    },
-    {
-      value: 'condo',
-      title: "Condo"
-    },
-    {
-      value: 'single_family',
-      title: "Single Family"
-    }
-  ];
-
   jQuery("#field-property-type").select( {
     label: "Property Type",
-    items: propertyTypeSelectOptions
+    items: showcase.propertyTypes
   });
-
+  
 }
 
 /*
