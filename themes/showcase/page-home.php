@@ -5,6 +5,12 @@
 <!-- used for the scroll on click -->
 <div id="homepage-content-start"></div>
 
+<?php if ( is_active_sidebar( 'home_right_1' ) ) : ?>
+	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+		<?php dynamic_sidebar( 'home_right_1' ); ?>
+	</div><!-- #primary-sidebar -->
+<?php endif; ?>
+
 <!-- Home Content Section 1 -->
 <div class="home-section">
   <div class="container">
