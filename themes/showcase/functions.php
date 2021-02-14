@@ -41,9 +41,24 @@ add_action('wp_enqueue_scripts', function() {
     '1.0.0'
   );
 
-  /* Main Stylesheet */
+
+
   wp_enqueue_style(
-    'all-access-boston',
+    'propertywp-select',
+    'https://use.fontawesome.com/releases/v5.15.2/css/all.css',
+    [],
+    '5.15.2'
+  );
+
+  wp_enqueue_style(
+    'propertywp-select',
+    get_template_directory_uri() . '/css/select.css',
+    ['bootstrap'],
+    time()
+  );
+
+  wp_enqueue_style(
+    'propertywp-main-styles',
     get_template_directory_uri() . '/style.css',
     ['bootstrap'],
     time()
