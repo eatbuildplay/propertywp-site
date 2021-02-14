@@ -84,6 +84,7 @@ if ( ! file_exists( get_template_directory() . '/class-wp-bootstrap-navwalker.ph
 
 register_nav_menus( array(
   'primary' => __( 'Primary Menu', get_template() ),
+  'footer' => __( 'Footer Menu', get_template() ),
 ));
 
 

@@ -78,26 +78,27 @@ if( !$privacyPolicyPage ) {
         <div class="col-sm-12 col-md-4">
           <!-- menu -->
           <div class="footer-menu d-flex justify-content-end text-right">
-            <ul class="menu">
-              <li>
-                <a href="<?php print site_url( 'register' ); ?>">Account</a>
-              </li>
-              <li>
-                <a href="<?php print site_url( 'careers' ); ?>">Careers</a>
-              </li>
-              <li>
-                <a href="<?php print site_url( 'properties' ); ?>">Properties</a>
-              </li>
-              <li>
-                <a href="<?php print site_url( 'sitemap' ); ?>">Sitemap</a>
-              </li>
-            </ul>
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-dropdown" aria-controls="navbar-dropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <?php
+                wp_nav_menu( array(
+                  'theme_location'    => 'footer',
+                  'depth'             => 1,
+                  'container'         => 'div',
+                  'container_class'   => 'collapse navbar-collapse justify-content-end',
+                  'container_id'      => 'navbar-dropdown',
+                  'menu_class'        => 'nav navbar-nav',
+                  'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                  'walker'            => new WP_Bootstrap_Navwalker(),
+                ));
+              ?>
+            </nav>
+
           </div>
-
-
         </div>
-
-
       </div>
 
       <!-- Last row -->
