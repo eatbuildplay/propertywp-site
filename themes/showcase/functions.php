@@ -85,3 +85,31 @@ if ( ! file_exists( get_template_directory() . '/class-wp-bootstrap-navwalker.ph
 register_nav_menus( array(
   'primary' => __( 'Primary Menu', get_template() ),
 ));
+
+
+/***
+*** Customizer
+***/
+
+add_action('customize_register', 'theme_footer_customizer');
+
+function theme_footer_customizer( $wp_customize ) {
+
+  //adding section in wordpress customizer
+  $wp_customize->add_section('footer_settings_section',
+  array(
+    'title' => 'Footer Text Section'
+  ));
+
+  //adding setting for footer text area
+  $wp_customize->add_setting('street_address', array(
+   'default' => '123 Charter Blvd.',
+   ));
+
+  $wp_customize->add_control('street_address', array(
+    'label'   => 'Footer Text Here',
+    'section' => 'footer_settings_section',
+    'type'    => 'textarea',
+  ));
+
+}

@@ -21,7 +21,7 @@
             <ul class="f-adress">
               <li class="d-flex align-items-center">
                 <i class="fas fa-map"></i>
-                  123 St. Marys Street Brookline MA 02446
+                  <?php print get_theme_mod('street_address'); ?>
                 </li>
                 <li class="d-flex align-items-center">
                   <i class="fas fa-envelope"></i>
