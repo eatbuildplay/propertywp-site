@@ -1,3 +1,13 @@
+<?php
+
+// Hero Heading
+$heroHeading = get_theme_mod('hero_heading');
+
+// Properties Found
+$showPropertiesFound = get_theme_mod('home_properties_found');
+
+?>
+
 <!-- Property Search -->
 <div class="container-fluid" id="property-search-wrap">
   <div id="property-search" class="container">
@@ -5,7 +15,7 @@
     <div class="row p-0" id="slider-left">
 
       <div class="col-md-12 d-flex align-items-center justify-content-center">
-        <h2>Simply Rethinking Real Estate.</h2>
+        <h2><?php print $heroHeading; ?></h2>
       </div>
 
     </div>
@@ -33,9 +43,12 @@
 
       </div><!-- ./ col-6 -->
 
-      <div id="search-filter-counter" class="col-md-6 d-flex justify-content-end align-items-center">
-          <h3 class="align-self-center" style="color: #FFF; font-size: 0.90em; font-weight: 300; margin:0 6px 0 0;"><span id="home-search-count"></span> Properties Found</h3>
-      </div>
+      <!-- Properties Found -->
+      <?php if( $showPropertiesFound ) : ?>
+        <div id="search-filter-counter" class="col-md-6 d-flex justify-content-end align-items-center">
+            <h3 class="align-self-center" style="color: #FFF; font-size: 0.90em; font-weight: 300; margin:0 6px 0 0;"><span id="home-search-count"></span> Properties Found</h3>
+        </div>
+      <?php endif; ?>
 
     </div><!-- ./ row -->
 

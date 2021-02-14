@@ -94,6 +94,38 @@ register_nav_menus( array(
 
 add_action('customize_register', 'theme_footer_customizer');
 add_action('customize_register', 'theme_header_customizer');
+add_action('customize_register', 'theme_home_customizer');
+
+function theme_home_customizer( $wp_customize ) {
+
+  $wp_customize->add_section('home_settings_section',
+  array(
+    'title' => 'Home'
+  ));
+
+  // Home > Hero Header
+  $wp_customize->add_setting('hero_heading', array(
+    'default' => 'Helping People Find Homes.',
+  ));
+
+  $wp_customize->add_control('hero_heading', array(
+    'label'   => 'Hero Heading',
+    'section' => 'home_settings_section',
+    'type'    => 'text',
+  ));
+
+  // Home > Properties Found
+  $wp_customize->add_setting('home_properties_found', array(
+    'default' => 1,
+  ));
+
+  $wp_customize->add_control('home_properties_found', array(
+    'label'   => 'Show Properties Found?',
+    'section' => 'home_settings_section',
+    'type'    => 'checkbox',
+  ));
+
+}
 
 function theme_header_customizer( $wp_customize ) {
 
@@ -134,7 +166,6 @@ $wp_customize->add_control( new WP_Customize_Image_Control(
 
 function theme_footer_customizer( $wp_customize ) {
 
-  //adding section in wordpress customizer
   $wp_customize->add_section('footer_settings_section',
   array(
     'title' => 'Footer Text Section'
