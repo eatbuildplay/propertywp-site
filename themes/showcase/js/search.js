@@ -18,64 +18,11 @@ jQuery(document).ready(function($) {
   // Bedrooms Field
   initFieldBedrooms();
 
-
-
   // Bathrooms Field
-  var bathroomSelectOptions = [
-    {
-      value: "1",
-      title: "1+"
-    },
-    {
-      value: "2",
-      title: "2+"
-    },
-    {
-      value: "3",
-      title: "3+"
-    },
-    {
-      value: "4",
-      title: "4+"
-    }
-  ];
+  initFieldBathrooms()
 
-  $("#field-bathrooms").select({
-    label: "Bathrooms",
-    items: bathroomSelectOptions
-  });
-
-  // Price Minimum
-  let priceMinimumSelectOptions = [
-    {
-      value: 500,
-      title: "500"
-    },
-    {
-      value: 1000,
-      title: "1000"
-    }
-  ];
-  $("#field-price-minimum").select( {
-      label: "Minimum $",
-      items: priceMinimumSelectOptions
-  } );
-
-  // Price Maximum
-  let priceMaximumSelectOptions = [
-    {
-      value: 500,
-      title: "500"
-    },
-    {
-      value: 1000,
-      title: "1000"
-    }
-  ];
-  $("#field-price-maximum").select( {
-      label: "Maximum $",
-      items: priceMaximumSelectOptions
-  } );
+  initFieldPriceMinimum();
+  initFieldPriceMaximum();
 
   /* Init property type field */
   initFieldPropertyType();
@@ -122,6 +69,36 @@ function initFieldBedrooms() {
 }
 
 /*
+ * Bathrooms Field Init
+ */
+function initFieldBathrooms() {
+
+  jQuery("#field-bathrooms").select( {
+    label: "Bathrooms",
+    items: showcase.searchDefaultBathrooms
+  });
+
+}
+
+function initFieldPriceMinimum() {
+
+  jQuery("#field-price-minimum").select( {
+    label: "Minimum $",
+    items: showcase.searchDefaultPriceMinimumBuy
+  });
+
+}
+
+function initFieldPriceMaximum() {
+
+  jQuery("#field-price-maximum").select( {
+    label: "Maximum $",
+    items: showcase.searchDefaultPriceMaximumBuy
+  });
+
+}
+
+/*
 * Toggle search type to buy form
 */
 function toggleSearchTypeBuy() {
@@ -131,12 +108,12 @@ function toggleSearchTypeBuy() {
 
   jQuery('#field-price-minimum').select({
     action: 'setChoices',
-    choices: [
-      {
-        value: 1,
-        title: 'Uno'
-      }
-    ]
+    choices: showcase.searchDefaultPriceMinimumBuy
+  });
+
+  jQuery('#field-price-maximum').select({
+    action: 'setChoices',
+    choices: showcase.searchDefaultPriceMaximumBuy
   });
 
 }
@@ -148,5 +125,15 @@ function toggleSearchTypeRent() {
 
   jQuery('#field-move-in-date').show();
   jQuery('#field-property-type').hide();
+
+  jQuery('#field-price-minimum').select({
+    action: 'setChoices',
+    choices: showcase.searchDefaultPriceMinimumRent
+  });
+
+  jQuery('#field-price-maximum').select({
+    action: 'setChoices',
+    choices: showcase.searchDefaultPriceMaximumRent
+  });
 
 }

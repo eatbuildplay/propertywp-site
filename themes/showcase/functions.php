@@ -127,9 +127,14 @@ add_action('wp_enqueue_scripts', function() {
     'templateUrl' 	=> get_stylesheet_directory_uri(),
     'userId'      	=> get_current_user_id(),
     'areas'       	=> getAreas(),
-		'searchDefaultPropertyTypes' => searchDefaultPropertyTypes(),
-		'searchDefaultBedrooms' => searchDefaultBedrooms(),
-    'moveInDates' 	=> getMoveInDates()
+		'searchDefaultPropertyTypes'  	=> searchDefaultPropertyTypes(),
+		'searchDefaultBedrooms' 				=> searchDefaultBedrooms(),
+		'searchDefaultBathrooms' 				=> searchDefaultBathrooms(),
+		'searchDefaultPriceMinimumBuy' 	=> searchDefaultPriceMinimumBuy(),
+		'searchDefaultPriceMaximumBuy' 	=> searchDefaultPriceMaximumBuy(),
+		'searchDefaultPriceMinimumRent' => searchDefaultPriceMinimumRent(),
+		'searchDefaultPriceMaximumRent' => searchDefaultPriceMaximumRent(),
+		'moveInDates' => getMoveInDates()
   ];
 
   wp_localize_script( 'showcase-main-script', 'showcase', $localVars );
