@@ -44,7 +44,7 @@ add_action('wp_enqueue_scripts', function() {
 
 
   wp_enqueue_style(
-    'propertywp-select',
+    'propertywp-fontawesome',
     'https://use.fontawesome.com/releases/v5.15.2/css/all.css',
     [],
     '5.15.2'
@@ -60,7 +60,7 @@ add_action('wp_enqueue_scripts', function() {
   wp_enqueue_style(
     'propertywp-main-styles',
     get_template_directory_uri() . '/style.css',
-    ['bootstrap'],
+    ['bootstrap', 'propertywp-select'],
     time()
   );
 
