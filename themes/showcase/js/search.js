@@ -156,6 +156,16 @@ function toggleSearchTypeBuy() {
   jQuery('#field-move-in-date').hide();
   jQuery('#field-property-type').show();
 
+  jQuery('#field-price-minimum').select({
+    action: 'setChoices',
+    choices: [
+      {
+        value: 1,
+        title: 'Uno'
+      }
+    ]
+  });
+
 }
 
 /*

@@ -248,6 +248,22 @@
 
     let obj = this.data('select');
 
+    /* Set choices */
+    if( args.action == 'setChoices' ) {
+
+      if( obj == undefined ) {
+        return false;
+      }
+
+      obj.items = args.choices;
+      obj.selectRefreshItems( obj.items );
+      obj.setValue( false );
+
+      // args.choices
+      return;
+
+    }
+
     /* Set value */
     if( args.action == 'setValue' ) {
 
