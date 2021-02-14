@@ -44,7 +44,7 @@ $headerLogo = get_theme_mod('header_logo');
         </div><!-- /.col -->
 
         <div id="cart-col" class="col-4 col-lg-1 order-lg-2 d-flex">
-          <div id="cart"></div>
+          <i class="fas fa-home fa-2x"></i>
         </div><!-- /.col-md-2 -->
 
       </div><!-- /.row -->

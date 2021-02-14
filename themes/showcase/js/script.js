@@ -1,8 +1,10 @@
 function homepageSetup() {
 
+  /*
   updateSearchFilterCounter();
   homeSearchCountLoaderStart();
   homeSearchFormSetup();
+  */
 
 }
 
