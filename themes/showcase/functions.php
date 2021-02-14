@@ -92,10 +92,26 @@ add_action('wp_enqueue_scripts', function() {
     '1.0.0'
   );
 
+	wp_enqueue_script(
+    'greensock',
+    'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js',
+    ['jquery'],
+    '3.6.0',
+    true
+  );
+
+  wp_enqueue_script(
+    'greensock-scroll-trigger',
+    'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js',
+    ['jquery', 'greensock'],
+    '3.6.0',
+    true
+  );
+
   wp_enqueue_script(
     'showcase-main-script',
     get_template_directory_uri() . '/js/script.js',
-    ['jquery', 'select', 'search'],
+    ['jquery', 'select', 'search', 'greensock', 'greensock-scroll-trigger'],
     '1.0.0'
   );
 
