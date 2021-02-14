@@ -1,5 +1,20 @@
 jQuery(document).ready(function($) {
 
+  /*
+  *  Toggle search form
+  */
+  $('#field-search-type').on('click', function( e ) {
+
+    var switchBuyRent =  document.getElementById('field-search-type').checked;
+
+    if (switchBuyRent) {
+      toggleSearchTypeRent();
+    } else {
+      toggleSearchTypeBuy();
+    }
+
+  });
+
   // Bedrooms Field
   var bedroomSelectOptions = [
     {
@@ -130,5 +145,25 @@ function initFieldPropertyType() {
     label: "Property Type",
     items: propertyTypeSelectOptions
   });
+
+}
+
+/*
+* Toggle search type to buy form
+*/
+function toggleSearchTypeBuy() {
+
+  jQuery('#field-move-in-date').hide();
+  jQuery('#field-property-type').show();
+
+}
+
+/*
+ * Toggle search type to rent form
+ */
+function toggleSearchTypeRent() {
+
+  jQuery('#field-move-in-date').show();
+  jQuery('#field-property-type').hide();
 
 }

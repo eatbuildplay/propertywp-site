@@ -32,8 +32,8 @@ $showPropertiesFound = get_theme_mod('home_properties_found');
             <!-- Rounded switch -->
             <span>Buy</span>
             <label class="switch-buy-rent" id="switch-buy-rent">
-                <input type="checkbox" id="field-search-type" name="field-search-type">
-                <span class="slider-buy-rent round"></span>
+              <input type="checkbox" id="field-search-type" name="field-search-type">
+              <span class="slider-buy-rent round"></span>
             </label>
             <span>Rent</span>
           </div>
