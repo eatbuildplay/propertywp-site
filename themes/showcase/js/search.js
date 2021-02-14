@@ -95,6 +95,14 @@ jQuery(document).ready(function($) {
     items: showcase.moveInDates
   });
 
+  /* Areas */
+  $("#field-neighborhood").select( {
+    label: "Neighborhood",
+    items: showcase.areas,
+    multiple: true,
+    filter: true
+  });
+
 });
 
 

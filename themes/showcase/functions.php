@@ -68,7 +68,7 @@ add_action('wp_enqueue_scripts', function() {
   $localVars = [
     'templateUrl' => get_stylesheet_directory_uri(),
     'userId'      => get_current_user_id(),
-    //'areas'       => getAreas(),
+    'areas'       => getAreas(),
     'moveInDates' => getMoveInDates()
   ];
 
@@ -311,5 +311,43 @@ function getMoveInDates( $months = 13 ) {
   }
 
   return $moveInDates;
+
+}
+
+function getAreas() {
+
+  /*
+  $args_area = [
+    'post_type' => 'acfg_area',
+    'numberposts' => -1,
+    'orderby' => 'title',
+    'order' => 'ASC'
+  ];
+  $posts_area = get_posts($args_area);
+
+  $areas = [];
+  foreach( $posts_area as $post_area ) {
+
+    $area = new stdClass;
+    $area->title = get_post_meta( $post_area->ID, 'title', true );
+    $area->title = $area->title ? $area->title : $post_area->post_title;
+    $area->value = $post_area->ID;
+    $areas[] = $area;
+
+  }
+
+  */
+
+  $area1 = new stdClass;
+  $area1->title = 'Quito';
+  $area1->value = 945;
+  $area2 = new stdClass;
+  $area2->title = 'Bogota';
+  $area2->value = 946;
+  $areas = [
+    $area1, $area2
+  ];
+
+  return $areas;
 
 }
