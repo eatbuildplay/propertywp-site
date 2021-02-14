@@ -1,3 +1,10 @@
+<?php
+
+// Header Logo
+$headerLogo = get_theme_mod('header_logo');
+
+?>
+
 <div id="header">
   <header>
 
@@ -30,8 +37,7 @@
 
           <div id="logo" class="d-flex justify-content-center justify-content-lg-start">
             <a href="<?php print site_url(); ?>">
-              <img id="logo-image" class="d-none d-lg-block logo-full" src="<?php print get_template_directory_uri() . '/assets/encore_logo.png'; ?>" />
-              <img id="logo-image" class="d-lg-none logo-slim" src="<?php print get_template_directory_uri() . '/assets/encore_logo_slim.png'; ?>"/>
+              <img id="logo-image" class="d-none d-lg-block logo-full" src="<?php print $headerLogo; ?>" />
             </a>
           </div>
 

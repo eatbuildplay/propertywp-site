@@ -93,6 +93,44 @@ register_nav_menus( array(
 ***/
 
 add_action('customize_register', 'theme_footer_customizer');
+add_action('customize_register', 'theme_header_customizer');
+
+function theme_header_customizer( $wp_customize ) {
+
+  $wp_customize->add_section('header_settings_section',
+  array(
+    'title' => 'Header'
+  ));
+
+  // Header > Logo
+
+  $wp_customize->add_setting( 'header_logo',
+    array(
+      'default' => '',
+      'transport' => 'refresh',
+      'sanitize_callback' => 'esc_url_raw'
+    )
+  );
+
+$wp_customize->add_control( new WP_Customize_Image_Control(
+  $wp_customize, 'header_logo',
+   array(
+    'label' => __( 'Header Logo' ),
+    'description' => esc_html__( 'This is the description for the Image Control' ),
+    'section' => 'header_settings_section',
+    'button_labels' => array( // Optional.
+      'select' => __( 'Select Image' ),
+      'change' => __( 'Change Image' ),
+      'remove' => __( 'Remove' ),
+      'default' => __( 'Default' ),
+      'placeholder' => __( 'No image selected' ),
+      'frame_title' => __( 'Select Image' ),
+      'frame_button' => __( 'Choose Image' ),
+      )
+    )
+  ));
+
+}
 
 function theme_footer_customizer( $wp_customize ) {
 
@@ -181,12 +219,12 @@ function theme_footer_customizer( $wp_customize ) {
   // Footer > Logo
 
   $wp_customize->add_setting( 'footer_logo',
-   array(
+    array(
       'default' => '',
       'transport' => 'refresh',
       'sanitize_callback' => 'esc_url_raw'
-   )
-);
+    )
+  );
 
 $wp_customize->add_control( new WP_Customize_Image_Control(
   $wp_customize, 'footer_logo',
