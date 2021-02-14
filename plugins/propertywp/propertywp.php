@@ -23,6 +23,8 @@ class Plugin {
 
   public function __construct() {
 
+    require_once( PROPERTYWP_PATH . 'classes/AdminMenu.php');
+    new AdminMenu();
 
   }
 

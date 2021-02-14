@@ -7,7 +7,25 @@ Author: SaberTech
 Description: Showcase is a real estate theme designed to work with the Property WP real estate plugin.
 Requires at least: 5.3
 
+Table of Contents
+1.0 CSS Global Variables
+
 */
+
+
+
+/**********
+1.0 CSS Global Variables
+**********/
+:root {
+
+
+
+}
+
+#header {
+  background: #000;
+}
 
 #property-search-wrap {
   background: url('./assets/homecover.png') no-repeat center center;
@@ -36,9 +54,9 @@ FROM AAB
  */
 
 body {
-  margin: 81px 0 0 0;
+  margin: 0 0 0 0;
   font-size: 16px;
-  font-family: "Gotham A", "Gotham B";
+  font-family: "Helvetica, sans-serif";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5em;

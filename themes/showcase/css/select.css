@@ -1,0 +1,88 @@
+.aab-select {
+  cursor: pointer;
+  background: #FFF;
+  margin: 0 0 0 0;
+  max-width: 320px;
+  font-size: 0.85em;
+  color: #363636;
+  position: relative;
+}
+
+.aab-select ul {
+  margin: 0;
+  padding: 0;
+}
+
+.aab-select li {
+  margin: 0;
+  padding: 0.85em 0;
+  border-bottom: solid 1px #CCC;
+}
+
+.aab-select li:last-child {
+  border-bottom: none;
+}
+
+.aab-select li:hover {
+  color: #6A7BE7;
+}
+
+.aab-select li.selected {
+  color: #6A7BE7;
+}
+
+.aab-select h2 {
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 1.0em 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.aab-select h2 span {
+  overflow: hidden;
+  line-height: 1.5em;
+  max-height: 1.5em;
+}
+
+.aab-select h2 span.selected {
+  font-weight: 500;
+  color: #6A7BE7;
+}
+
+.aab-select .select-list {
+  display: none;
+  background: #FFF;
+  max-height: 240px;
+  min-width: 320px;
+  max-width: 320px;
+  position: absolute;
+  left: 0.5em;
+  top: 35px;
+  z-index: 100;
+  /* border-top: solid 1px var(--accent-color); */
+  margin-top: 1.0em;
+  overflow: hidden;
+}
+
+.aab-select .select-list ul {
+  padding: 1.0em 2.5em;
+  overflow: auto;
+  max-height: 170px;
+}
+
+.aab-select .select-search input {
+  width: 100%;
+  border: none;
+  border: solid 1px #CCC;
+  padding: 0.5em 2.5em 0.5em 2.5em;
+  margin: 1.0em 0 0 0;
+}
+
+.aab-select .select-complete button {
+  width: 100%;
+  padding: 0.5em 0.5em;
+  background: var(--accent-color);
+  color: #FFF;
+  border: none;
+}

@@ -20,6 +20,27 @@ add_action('wp_enqueue_scripts', function() {
     true
   );
 
+  wp_enqueue_script(
+    'select',
+    get_template_directory_uri() . '/js/select.js',
+    ['jquery'],
+    '1.0.0'
+  );
+
+  wp_enqueue_script(
+    'search',
+    get_template_directory_uri() . '/js/search.js',
+    ['jquery', 'select'],
+    '1.0.0'
+  );
+
+  wp_enqueue_script(
+    'propertywp-main-script',
+    get_template_directory_uri() . '/js/script.js',
+    ['jquery', 'select', 'search'],
+    '1.0.0'
+  );
+
   /* Main Stylesheet */
   wp_enqueue_style(
     'all-access-boston',
