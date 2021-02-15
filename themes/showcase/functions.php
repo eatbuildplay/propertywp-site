@@ -3,6 +3,12 @@
 require_once( get_template_directory() . '/inc/search.php' );
 require_once( get_template_directory() . '/inc/kirki/kirki.php' );
 
+/* Widgets Init */
+require_once( get_template_directory() . '/inc/widget_home.php' );
+add_action('widgets_init', function() {
+	register_widget('WidgetHome');
+});
+
 Kirki::add_config( 'theme_config_id', array(
 	'capability'    => 'edit_theme_options',
 	'option_type'   => 'theme_mod',
