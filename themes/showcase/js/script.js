@@ -285,6 +285,23 @@ jQuery(document).ready(function($) {
     );
   });
 
+  /* Drag and Drop Widgets */
+  $( "#draggable1" ).draggable({ revert: "invalid" });
+
+  $( "#droppable1" ).droppable({
+    accept: ".draggable1",
+    classes: {
+      "ui-droppable-active": "ui-state-active",
+      "ui-droppable-hover": "ui-state-hover"
+    },
+    drop: function( event, ui ) {
+      $( this )
+        .addClass( "ui-state-highlight" )
+        .find( "p" )
+          .html( "Dropped!" );
+    }
+});
+
 // end jQuery ready
 });
 

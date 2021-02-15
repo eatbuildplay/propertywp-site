@@ -117,7 +117,15 @@ add_action('wp_enqueue_scripts', function() {
   wp_enqueue_script(
     'showcase-main-script',
     get_template_directory_uri() . '/js/script.js',
-    ['jquery', 'select', 'search', 'greensock', 'greensock-scroll-trigger'],
+    [
+			'jquery',
+			'jquery-ui-draggable',
+			'jquery-ui-droppable',
+			'select',
+			'search',
+			'greensock',
+			'greensock-scroll-trigger'
+		],
     '1.0.0'
   );
 
@@ -444,16 +452,29 @@ function getAreas() {
  * Register our sidebars and widgetized areas.
  *
  */
-function arphabet_widgets_init() {
+function WidgetsInit() {
 
-	register_sidebar( array(
-		'name'          => 'Home right sidebar',
-		'id'            => 'home_right_1',
-		'before_widget' => '<div>',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="rounded">',
-		'after_title'   => '</h2>',
-	) );
+	register_sidebar(
+		[
+			'name'          => 'Home right sidebar',
+			'id'            => 'home_right_1',
+			'before_widget' => '<div>',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="rounded">',
+			'after_title'   => '</h2>',
+		]
+	);
+
+	register_sidebar(
+		[
+			'name'          => 'Home right sidebar 2',
+			'id'            => 'home_right_2',
+			'before_widget' => '<div>',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="rounded">',
+			'after_title'   => '</h2>',
+		]
+	);
 
 }
-add_action( 'widgets_init', 'arphabet_widgets_init' );
+add_action( 'widgets_init', 'WidgetsInit' );

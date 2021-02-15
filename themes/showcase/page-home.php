@@ -5,9 +5,18 @@
 <!-- used for the scroll on click -->
 <div id="homepage-content-start"></div>
 
+<div id="draggable1" class="draggable1" style="background: blue; width: 100px; height: 100px;">DRAGGABLES</div>
+<div id="droppable1" style="background: grey; width: 300px; height: 300px;">DROPPABLE</div>
+
 <?php if ( is_active_sidebar( 'home_right_1' ) ) : ?>
 	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
 		<?php dynamic_sidebar( 'home_right_1' ); ?>
+	</div><!-- #primary-sidebar -->
+<?php endif; ?>
+
+<?php if ( is_active_sidebar( 'home_right_2' ) ) : ?>
+	<div id="secondary-sidebar" class="secondary-sidebar widget-area" role="complementary">
+		<?php dynamic_sidebar( 'home_right_2' ); ?>
 	</div><!-- #primary-sidebar -->
 <?php endif; ?>
 
