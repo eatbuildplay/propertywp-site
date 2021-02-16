@@ -5,6 +5,9 @@
 <!-- used for the scroll on click -->
 <div id="homepage-content-start"></div>
 
+<?php require( get_template_directory() . '/templates/section1.php'); ?>
+<?php require( get_template_directory() . '/templates/section2.php'); ?>
+
 <div id="draggable1" class="draggable1" style="background: blue; width: 100px; height: 100px;">DRAGGABLES</div>
 <div id="droppable1" style="background: grey; width: 300px; height: 300px;">DROPPABLE</div>
 
