@@ -35,6 +35,8 @@ class Manager {
 
     $this->parseQueryResult();
 
+    $GLOBALS['search'] = $this;
+
   }
 
 

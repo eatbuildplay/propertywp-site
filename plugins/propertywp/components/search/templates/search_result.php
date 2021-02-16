@@ -1,12 +1,6 @@
-<div>
-
-  <h2>Search Results</h2>
-  <section></section>
-
-</div>
-
-<script>
-
-
-
-</script>
+<template id="search-result">
+  <div class="search-result">
+    <h2></h2>
+    <section></section>
+  </div>
+</template>

@@ -30,12 +30,7 @@ class Plugin {
     require_once( PROPERTYWP_PATH . 'components/search/Manager.php');
     $search = new Components\Search\Manager();
     $search->init();
-    $GLOBALS['search'] = $search;
-
-    // debug
-    //var_dump( $search );
-    //die();
-
+    
   }
 
   public static function activation() {
