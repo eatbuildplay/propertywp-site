@@ -1,4 +1,28 @@
+/*
+ * Search JS Class
+ */
+class Search {
+
+  formSubmitBlock() {
+
+    jQuery('form').submit( function( e ) {
+      e.preventDefault();
+    });
+
+  }
+
+
+}
+// end Search class
+
+
+
+
 jQuery(document).ready(function($) {
+
+  /* init search class */
+  var search = new Search();
+  search.formSubmitBlock();
 
   /*
    * Append search result element to #content
@@ -6,7 +30,7 @@ jQuery(document).ready(function($) {
   var searchResultTemplate = $('#search-result');
   searchResultEl = $( searchResultTemplate.html() );
   searchResultEl.find('h2').html('Search Results');
-  searchResultEl.appendTo('#content');
+  searchResultEl.appendTo('#search-results-wrap');
 
   /*
    * Build search results grid elements

@@ -4,6 +4,18 @@
   var searchResultItems = <?php print $search->result->getItemsJson(); ?>;
 </script>
 
+<div class="container" style="margin-top: 150px;">
+  <div class="row">
+    <div class="col-md-6 prwp-half-map-left">
+      MAPA
+    </div>
+    <div class="col-md-6 prwp-half-map-right">
+      <?php $search->renderTemplate('search_form'); ?>
+      <div id="search-results-wrap"></div>
+    </div>
+  </div>
+</div>
+
 <div id="content" style="margin-top: 150px;">
 <?php
 
