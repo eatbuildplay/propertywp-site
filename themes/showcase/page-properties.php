@@ -1,9 +1,13 @@
 <?php get_header(); ?>
+<?php
 
+$search = $GLOBALS['search'];
+
+?>
 <div class="container" style="margin-top: 150px;">
   <div class="row">
     <div class="col-md-6 prwp-half-map-left">
-      MAPA
+        <div id="prop-map" style="height: 500px;"></div>
     </div>
     <div class="col-md-6 prwp-half-map-right">
       <?php $search->renderTemplate('search_form'); ?>
@@ -14,7 +18,6 @@
 
 <?php
 
-$search = $GLOBALS['search'];
 $search->renderTemplate('search_result');
 $search->renderTemplate('search_result_item');
 

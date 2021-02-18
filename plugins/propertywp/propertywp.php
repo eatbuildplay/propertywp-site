@@ -30,6 +30,11 @@ class Plugin {
     require_once( PROPERTYWP_PATH . 'components/search/Manager.php');
     $search = new Components\Search\Manager();
     $search->init();
+
+    // include map component
+    require_once( PROPERTYWP_PATH . 'components/map/Manager.php');
+    $map = new Components\Map\Manager();
+    $map->init();
     
   }
 
