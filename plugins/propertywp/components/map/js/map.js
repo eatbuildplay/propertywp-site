@@ -6,6 +6,8 @@ var lat = 4.7129553145829695;
 var lng = -74.08241225035823;
 var zoom = 6;
 var iconUrl;
+var JSONstyle;
+var mapProperties;
 
 class Maps {
     constructor(idElement ,latitud, longitud, z) {
@@ -13,48 +15,22 @@ class Maps {
         lat = latitud;
         lng = longitud;
         zoom = z;
+
+    }
+    init(){
+        initMap();
     }
     iconMarkers( url ){
         iconUrl = url;
     }
+    jsonStyle( styles ){
+        JSONstyle = styles
+    }
+    setProperty( prop ){
+        mapProperties = prop
+    }
 }
 
-/* testing data */
-var setupMap = new Maps('prop-map',4.7129553145829695,-74.08241225035823,6);
-setupMap.iconMarkers('https://images.vexels.com/media/users/3/128066/isolated/preview/5940a70160831672d35888200bbac868-home-location-pointer-icon-by-vexels.png');
-
-/* Properties data test */
-var prop = [
-    {
-        title : 'title property1',
-        coordinates: {
-            lat: 6.248806161175757,
-            lng: -75.5733178382851,
-        }
-    },
-    {
-        title : 'title property2',
-        coordinates: {
-            lat: 4.7129553145829695,
-            lng: -75.5733178382851,
-        }
-    },
-    {
-        title : 'title property3',
-        coordinates: {
-            lat: 3.4310468223036525,
-            lng: -75.5733178382851,
-        }
-    },
-    {
-        title : 'title property4',
-        coordinates: {
-            lat: 3.4310468223036525,
-            lng: -76.5181131172518,
-        }
-    },
-];
-/* end Properties test */
 
 /* init map class */
 function initMap(){
@@ -64,10 +40,25 @@ function initMap(){
             lat: lat,
             lng: lng
         },
-        zoom: zoom
+        zoom: zoom,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain", "styled_map"],
+        },
     });
 
-    populateMap(prop);
+    /* style custom map */
+    if (JSONstyle){
+        const styledMapType = new google.maps.StyledMapType(JSONstyle,{ name: "Styled Map" });
+        map.mapTypes.set("styled_map", styledMapType);
+        map.setMapTypeId("styled_map");
+    }
+
+    /* init Populate map */
+    if (mapProperties){
+        populateMap(mapProperties);
+    }
+
 }
 
 function populateMap( properties ) {
@@ -112,8 +103,8 @@ function addMarkers( properties ) {
         } else {
 
             var latLng = {
-                lat: 4.7129553145829695,
-                lng: -74.08241225035823
+                lat: lat,
+                lng: lng
             };
 
         }
@@ -134,12 +125,10 @@ function addMarkers( properties ) {
             var marker = new google.maps.Marker({
                 position: latLng,
                 title: title,
-                //icon: iconBase ,
             });
             if (iconUrl) {
                 marker.setIcon(iconBase)
             }
-
             mapMarkers.push( marker );
 
         }

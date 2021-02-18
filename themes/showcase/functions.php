@@ -152,6 +152,14 @@ add_action('wp_enqueue_scripts', function() {
     time()
   );
 
+  wp_enqueue_script(
+    'map-theme',
+    get_template_directory_uri() . '/js/map.js',
+    ['propertywp-component-map'],
+    time(),
+    true
+  );
+
   /* end scripts and styles single property */
   $localVars = [
     'templateUrl' 	=> get_stylesheet_directory_uri(),

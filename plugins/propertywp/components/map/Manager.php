@@ -12,9 +12,10 @@ class Manager {
         // enqueue scripts
         add_action('wp_enqueue_scripts', function() {
 
+            //'https://maps.googleapis.com/maps/api/js?key=AIzaSyD1wJo8NuuIQVBDqCmk1n5nAzWAIg6a7HQ&callback=initMap'
             wp_enqueue_script(
                 'propertywp-google-maps-js',
-                'https://maps.googleapis.com/maps/api/js?key=AIzaSyD1wJo8NuuIQVBDqCmk1n5nAzWAIg6a7HQ&callback=initMap',
+                'https://maps.googleapis.com/maps/api/js?key=AIzaSyD1wJo8NuuIQVBDqCmk1n5nAzWAIg6a7HQ',
                 ['propertywp-component-map'],
                 time(),
                 true
